@@ -17,7 +17,7 @@ const app = express();
 app.use(cors({
     origin: [
         "http://localhost:5173",
-       "https://devtinder-q0442522e-shubham-chauhans-projects-ad84baf8.vercel.app"
+      "devtinder-qmt8rvw80-shubham-chauhans-projects-ad84baf8.vercel.app"
     ],
     credentials: true,
 }));
