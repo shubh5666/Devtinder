@@ -13,6 +13,7 @@ const requestRouter = require("./routes/request");
 const userRouter = require("./routes/user");
 
 const app = express();
+app.set("trust proxy", 1);
 
 app.use(cors({
     origin: [
