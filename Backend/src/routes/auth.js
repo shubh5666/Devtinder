@@ -132,7 +132,11 @@ authRouter.post("/login", async (req, res) => {
             // Store token inside cookies.
             // Browser will automatically
             // send this token in future requests.
-            res.cookie("token", token);
+        res.cookie("token", token, {
+                httpOnly: true,
+                     secure: true,
+                           sameSite: "none",
+                         });
 
             res.send(user);
 
