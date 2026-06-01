@@ -136,6 +136,7 @@ authRouter.post("/login", async (req, res) => {
                 httpOnly: true,
                      secure: true,
                            sameSite: "none",
+                           maxAge : 7*24*60*60*1000,
                          });
 
             res.send(user);
@@ -174,9 +175,11 @@ authRouter.post("/login", async (req, res) => {
 authRouter.post("/logout", async (req, res) => {
 
     // Remove JWT token from cookies.
-    res.cookie("token", null, {
-        expires: new Date(Date.now()),
-    });
+   res.clearCookie("token", {
+  httpOnly: true,
+  secure: true,
+  sameSite: "none",
+});
 
     res.send("Logout Successfully");
 
